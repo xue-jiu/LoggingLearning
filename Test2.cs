@@ -6,33 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoggingLearning
+namespace SystemServices
 {
-    public class Test
+    class Test2
     {
-        private readonly ILogger<Test> _logger;
-        public Test(ILogger<Test> logger)
+        private readonly ILogger<Test2> _logger;
+        public Test2(ILogger<Test2> logger)
         {
             _logger = logger;
         }
-        public void OneTest() 
+
+        public void TwoTest()
         {
             _logger.LogDebug("开始连接数据库");
             _logger.LogDebug("连接数据库成功");
             _logger.LogWarning("查找数据失败,重试");
             _logger.LogWarning("查找数据失败,重试第二次");
             _logger.LogError("查找数据失败");
-            try
-            {
-                File.ReadAllText(@"D:\desktop\数据库使用.txt");
-                _logger.LogError("读取文件成功");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex,"读取文件失败");
-            }
+
+
         }
-
-
     }
 }
